@@ -58,20 +58,20 @@ console.log(!nameCity + " " + !userAge);
 if (nameCity === "київ" || nameCity === "киев" || nameCity === "kyiv" || nameCity === "kiev") {
 if(!userAge){
 document.getElementById("demo").innerHTML =
-  `Hello, WE DON'T know your AGE<br>You live in <b>Ukraine</b>`
+  `Hello, WE DON'T know your AGE<br>You live in capital of <b>Ukraine</b>`
 }else{document.getElementById("demo").innerHTML =
- `Hello, your age is <b> ${year - userAge}</b> <br>You live in <b>Ukraine</b>`};
+ `Hello, your age is <b> ${year - userAge}</b> <br>You live in capital of <b>Ukraine</b>`};
 }else if (nameCity === "вашингтон" || nameCity === "washington"){
 if(!userAge){
 document.getElementById("demo").innerHTML =
-  `Hello, WE DON'T know your AGE<br>You live in <b>USA</b>`
+  `Hello, WE DON'T know your AGE<br>You live in capital of <b>USA</b>`
 }else{document.getElementById("demo").innerHTML =
-  `Hello, your age is  <b> ${year - userAge}</b><br>You live in <b>USA</b>`}
+  `Hello, your age is  <b> ${year - userAge}</b><br>You live in capital of <b>USA</b>`}
 }else if (nameCity === "лондон" || nameCity === "london"){
 if(!userAge){
-document.getElementById("demo").innerHTML = `Hello, WE DON'T know your AGE<br>BUT You live in <b>Great Britain</b>`
+document.getElementById("demo").innerHTML = `Hello, WE DON'T know your AGE<br>BUT You live in capital of <b>Great Britain</b>`
 }else{document.getElementById("demo").innerHTML =
-  `Hello, your age is <b> ${year - userAge}</b> <br>You live in <b>Great Britain</b>`}
+  `Hello, your age is <b> ${year - userAge}</b> <br>You live in capital of <b>Great Britain</b>`}
 }else if (!nameCity && !userAge  && !favoriteSport) {
 document.getElementById("demo").innerHTML = "you didn't give any information about your city, age. "
 }else if (!nameCity && !userAge) {
