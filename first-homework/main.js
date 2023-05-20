@@ -106,10 +106,3 @@ document.getElementById("demo").innerHTML +=
 }
 }
 
-  
-   
- /*  if (nameCity !== "Київ" || nameCity !== "") {
-    document.getElementById("demo").innerHTML =
-    "Hello, your <b>age is</b> " + (2023 - userAge) + "<br> <b>Your city is</b> " + nameCity + "Your favorite sport is " + favoritSport;
-  } */
-
