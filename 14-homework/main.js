@@ -28,39 +28,39 @@ console.log('middle')
 console.log(middle(numbers));
 
 //3 zadanie
-const dateUser = Array(3);
-for (let i = 0; i < dateUser.length; i++) {
+const answersUser = Array(3);
+for (let i = 0; i < answersUser.length; i++) {
   let answer;
   if (i < 2) {
     answer = prompt('What is number?');
-    dateUser[i] = +answer;
+    answersUser[i] = +answer;
   } else {
     answer = prompt('What is symbol?');
-    dateUser[i] = answer;
+    answersUser[i] = answer;
   }
 }
-console.log(dateUser)
+console.log(answersUser)
 
-function doMath(dateUser) {
-  switch (dateUser[2]) {
+function doMath(answers) {
+  switch (answers[2]) {
     case '+':
-      console.log(dateUser[0] + dateUser[1]);
+      console.log(answers[0] + answers[1]);
       break;
     case '*':
-      console.log(dateUser[0] * dateUser[1]);
+      console.log(answers[0] * answers[1]);
       break;
     case '/':
-      console.log(dateUser[0] / dateUser[1]);
+      console.log(answers[0] / answers[1]);
       break;
     case '%':
-      console.log(dateUser[0] % dateUser[1]);
+      console.log(answers[0] % answers[1]);
       break;
     case '^':
-      console.log(degree(dateUser[0], dateUser[1]));
+      console.log(degree(answers[0], answers[1]));
       break;
   }
 }
-doMath(dateUser);
+doMath(answersUser);
 
 function degree(num, pow) {
   if (pow === 1) return num;
