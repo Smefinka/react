@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+  <style>
+  /* Стили слайдера */
+.slider {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slider-item {
+  flex: 1 0 100%;
+  height: 100%;
+}
+
+/* Стили кнопок prev и next */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 1;
+}
+
+.slider-controls button {
+  background-color: #9e2626;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    font-size: larger;
+    border-radius: 13px;
+}
+
+.slider-controls #prev {
+  order: 1; /* Фиксируем кнопку prev слева */
+}
+
+.slider-controls #next {
+  order: 2; /* Фиксируем кнопку next справа */
+}
+
+.slider-controls #prev[style*="display: none;"] + #next {
+  margin-left: auto; /* Добавляем отступ слева, если кнопка prev скрыта */
+}
+.slider-controls #next[style*="display: none;"] + #prev {
+  margin-right: auto; /* Добавляем отступ слева, если кнопка next скрыта */
+}
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slider-controls">
+      <button id="prev" style="display: none;">Prev</button>
+      <button id="next">Next</button>
+    </div>
+    <div class="slider-container">
+      <div class="slider-item">
+        <img src="images/img-1.png" id="slideImg" />
+        <!-- Контент первого слайда -->
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
