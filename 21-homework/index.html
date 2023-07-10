@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      width: 50%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      text-align: left;
+      width: 120px; /* Установите нужную ширину для первого столбца */
+    }
+    
+    td {
+      width: 200px; /* Оставьте ширину по умолчанию для второго столбца */
+    }
+    
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    form div {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form id="form" >
+    <div>
+      <label for="first-name">Ім'я:</label>
+      <input type="text" id="first-name" name="Имя">
+    </div>
+    <div>
+      <label for="last-name">Прізвище:</label>
+      <input type="text" id="last-name" name="Фамилия">
+    </div>
+    <div>
+      <label for="birthdate">Дата народження:</label>
+      <input type="text" id="birthdate" name="birthdate">
+    </div>
+    <div>
+      <label>Стать:</label>
+      <label for="male">Чоловіча</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="female">Жіноча</label>
+      <input type="radio" id="female" name="gender" value="female">
+    </div>
+    <div>
+      <label for="city">Місто:</label>
+      <select id="city" name="city">
+        <option value="kyiv" type="select">Київ</option>
+        <option value="lviv">Львів</option>
+        <option value="odessa">Одеса</option>
+        <option value="kharkiv">Харків</option>
+      </select>
+    </div>
+    <div>
+      <label for="address">Адреса:</label>
+      <textarea id="address" name="address"></textarea>
+    </div>
+    <div>
+      <label>Мови, якими володієте:</label>
+      <label for="lang1">Українська</label>
+      <input type="checkbox" id="lang1" name="languages" value="ukrainian">
+      <label for="lang2">Англійська</label>
+      <input type="checkbox" id="lang2" name="languages" value="english">
+      <label for="lang3">Російська</label>
+      <input type="checkbox" id="lang3" name="languages" value="russian">
+    </div>
+    <button type="submit">Зберегти</button>
+  </form>
+  <div style="text-align: center;">
+    <table id="table">
+    </table>
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+</html>
