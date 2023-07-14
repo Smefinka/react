@@ -95,7 +95,7 @@ form.addEventListener('submit', (event) => {
     const isRadioChecked = validateRadio(radioElements, RADIO_ERROR);
     const isSelectChecked = validateSelect(poshtaElement, SELECT_ERROR);
     // const isSelectChecked = validateSelect(radioElements, RADIO_ERROR);
-    if (isNameValid && isRadioChecked) {
+    if (isNameValid && isRadioChecked && isSelectChecked) {
         document.querySelector('#signup').classList.add('hidden');
         document.querySelector('#check').classList.remove('hidden');
         console.log('submit');
