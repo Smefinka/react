@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Верстка блоків</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+     form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    form div {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+    
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input.success {
+        border: 1px solid lightgreen;
+    }
+
+    input.error {
+        border: 1px solid lightcoral;
+    }
+
+    small {
+        color: lightcoral;
+    }
+
+    .d-flex {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin: 0;
+    }
+    .hidden{
+      display: none;
+    }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="category">
+      <h2>Категорії</h2>
+      <ul id="categories">
+      
+      </ul>
+    </div>
+
+    <div class="product-list" id="tv" style="display:none">
+      <h2>Список товарів телевизоры</h2>
+      <ul id="product-lists">
+        
+      </ul>
+    </div>
+    
+
+    <div class="product-card" id="product-card" style="display:none">
+      <h2 id="product-name">Za to wor-to</h2>
+      <p>Деталі та опис товару</p>
+      <p>Цена: <span id="product-price"></span></p>
+      <button id="buy-button">Купити</button>
+    </div>
+
+  </div>
+
+
+
+<form id="signup" class="hidden">
+  <div class="field">
+    <label for="name">ПіБ:</label>
+   <input type="text" id="name" name="name" placeholder="Enter your name" class="required">
+    <small></small>
+  </div>
+
+
+  <div class="field">
+    <label for="city" >Місто:</label>
+    <select id="city" name="city">
+      <option value="">Выберите Місто:</option>
+      <option value="kyiv">Киев</option>
+      <option value="lviv">Львів</option>
+    </select>
+
+  </div>
+
+  <div>
+    <label for="poshta">Склад Нової пошти для надсилання</label>
+    <select id="poshta" name="poshta">
+   
+    </select>
+    <small></small>
+  </div>
+  <div>
+    <div class="d-flex">
+      <p>Выбери способ оплаты <br></p>
+      <div class="radio-error">
+          <small></small>
+      </div>
+  </div>
+  <div class="field">
+    <label for="postoplata">Післяплати</label>
+    <input type="radio" id="postoplata" name="oplata" value="postoplata">
+    <label for="oplataNow">оплата банківської картки</label>
+    <input type="radio" id="oplataNow" name="oplata" value="bank-card">
+  </div>
+  </div>
+
+  <div class="field">
+    <label for="countProduct">Количество продукции</label>
+    <input type="number" id="countProduct" name="countProduct" class="required" value="1" min="1">
+  </div>
+  <textarea name="comment" form="signup">Enter text here...</textarea>
+  <button type="submit">Submit</button>
+</form>
+
+<div class="check hidden" id="check">
+  <h2>ЧЕК</h2>
+  <div class="check-item">
+    <span class="check-label">Название продукта:</span>
+    <span class="check-value" id="check-product-name">...</span>
+  </div>
+  <div class="check-item">
+    <span class="check-label">Количество:</span>
+    <span class="check-value" id="check-product-count">...</span>
+  </div>
+  <div class="check-item">
+    <span class="check-label">Сумма:</span>
+    <span class="check-value" id="check-product-price">...</span>
+  </div>
+  <div class="check-item">
+    <span class="check-label">Адрес новой почты:</span>
+    <span class="check-value" id="check-product-poshta">...</span>
+  </div>
+ 
+</div>
+
+
+
+<script  src="form-check.js"></script>
+<script src="main.js"></script>
+  
+</body>
+</html>
