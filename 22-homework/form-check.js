@@ -130,7 +130,14 @@ function showPoshtaOtdelenia() {
         }
     }
 }
-
+function currentDate() {
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${day}-${month}-${year}`;
+    return currentDate;
+}
 
 function showCheck(countProduct, poshtaElement1) {
     const nameProduct = document.getElementById('product-name').textContent;
@@ -138,14 +145,16 @@ function showCheck(countProduct, poshtaElement1) {
     let sum = priceProduct;
     if (countProduct.value > 1) {
         sum = (priceProduct.replace(/[^0-9]/g, '') * countProduct.value) + "$";
-      
+
     }
     const checkElements = {
         'check-product-name': nameProduct,
         'check-product-count': countProduct.value,
         'check-product-poshta': poshtaElement1,
-        'check-product-price': sum
+        'check-product-price': sum,
+        'date': currentDate()
     };
+
 
     for (const elementId in checkElements) {
         const element = document.getElementById(elementId);
@@ -153,5 +162,76 @@ function showCheck(countProduct, poshtaElement1) {
             element.innerHTML = checkElements[elementId];
         }
     }
+    addLocalStorage(checkElements);
+
 
 }
+
+const cart = document.getElementById('cart');
+const objectProducts = {};
+const sumOrder = document.getElementById('order-sum');
+cart.addEventListener('click', showCart);
+sumOrder.addEventListener('click',showMoreInfo, true);
+
+function showCart() {
+    let li;
+    document.getElementById('category').classList.add('hidden');
+    document.getElementById('check').classList.add('hidden');
+    sumOrder.innerHTML = '';
+    let infoProduct = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        let date,
+            price;
+        let keyLocalStorage = localStorage.key(i);
+        infoProduct.push(JSON.parse(localStorage.getItem(keyLocalStorage)));
+        objectProducts[i] = Object.fromEntries(infoProduct[i]);
+        li = document.createElement('li');
+        for (let key in objectProducts[i]) {
+            if (key.includes('date')) date = objectProducts[i][key];
+            if (key.includes('price')) price = objectProducts[i][key];
+            if (key.includes('name')) li.setAttribute('data-name', objectProducts[i][key])
+            li.innerHTML = ` <div class="order-summary" id="">
+            <p>Дата: ${date}</p>
+            <p>Цена: <span data-price="check-product-price">${price}</span></p>
+            <button class="delete-button">Delete</button>
+          </div>`
+            li.innerHTML +=` <div class="order-details hidden" id="order-details">
+            <p>Детали заказа:</p>
+            <ul>
+              <li>Название товара: ${objectProducts[i]['check-product-name']}</li>
+              <li>Сумма чека:${objectProducts[i]['check-product-price']} </li>
+              <li>Количество товара:${objectProducts[i]['check-product-count']} </li>
+              <li>Почта:${objectProducts[i]['check-product-poshta']} </li>
+            </ul>
+          </div>
+          `
+
+        }
+        sumOrder.append(li);
+       
+    }
+    
+}
+
+
+function addLocalStorage(checkElements) {
+    let checkElementsArray = Object.entries(checkElements);
+    localStorage.setItem(checkElements['check-product-name'], JSON.stringify(checkElementsArray));
+
+}
+function showMoreInfo(e){
+    let li = e.target.parentNode.parentNode;
+    let childLi = li.querySelector('.order-details');
+    let deleteLiButton = li.querySelector('.delete-button');
+    childLi.classList.toggle("hidden");
+    deleteLiButton.addEventListener('click', ()=>deleteLi(e,li))
+}
+
+function deleteLi(e,li){
+   let liAtribute = li.getAttribute('data-name');
+   console.log(liAtribute)
+   localStorage.removeItem(liAtribute);
+   li.remove();
+
+}
+

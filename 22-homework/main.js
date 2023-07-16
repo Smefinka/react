@@ -7,17 +7,17 @@ const obj = {
     listProducts: [
       {
         name: '3 LG phone',
-        price: '200$',
+        price: '50$',
         img: 'image/img-1.png'
       },
       {
         name: '11 Samsung phone',
-        price: '200$',
+        price: '120$',
         img: 'image/img-1.png'
       },
       {
         name: '18 Samsung phone',
-        price: '200$',
+        price: '110$',
         img: 'image/img-1.png'
       }
     ]
